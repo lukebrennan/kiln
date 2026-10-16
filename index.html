@@ -1,414 +1,175 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kiln Coffee Roasters — Fresh Roasted Coffee &amp; Bakery on Merchant Lane, Liverpool</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kiln Coffee Roasters — Roastery and bakery on Merchant Lane, Liverpool</title>
+  <meta name="description" content="Kiln is an independent coffee roastery and bakery in Liverpool. See the menu, the beans we roast, and when we are open.">
+  <meta name="theme-color" content="#0e0d0c">
 
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
-
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        glass: {
-                            dark: '#0B0D0E',
-                            surface: 'rgba(255, 255, 255, 0.03)',
-                            border: 'rgba(255, 255, 255, 0.08)',
-                            borderHover: 'rgba(217, 83, 38, 0.4)',
-                        },
-                        rust: '#D95326',
-                        brass: '#D4AF37'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        industrial: ['Space Grotesk', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
-
-    <style>
-        body {
-            background-color: #0B0D0E;
-            color: #F4F5F7;
-            font-family: 'Inter', sans-serif;
-        }
-        .glass-panel {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-        .glass-panel:hover {
-            border-color: rgba(217, 83, 38, 0.3);
-        }
-        .glass-header {
-            background: rgba(11, 13, 14, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-        }
-        .menu-dots::after {
-            content: "";
-            flex: 1;
-            border-bottom: 1px dotted rgba(255, 255, 255, 0.2);
-            margin: 0 12px;
-            transform: translateY(-4px);
-        }
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #0B0D0E; }
-        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.15); border-radius: 3px; }
-    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400..700&family=Big+Shoulders+Display:wght@600..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script src="assets/js/main.js" defer></script>
 </head>
-<body class="antialiased selection:bg-rust selection:text-white bg-[#0B0D0E] text-[#F4F5F7]">
+<body>
+  <a class="skip" href="#main">Skip to content</a>
 
-    <header class="sticky top-0 z-50 glass-header">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="#" class="font-industrial text-2xl font-bold tracking-wider text-white uppercase flex items-center gap-3">
-                <span class="inline-block w-3 h-3 bg-rust rounded-full shadow-[0_0_10px_#D95326]"></span>
-                Kiln // L1
-            </a>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="#top" aria-label="Kiln Coffee Roasters, back to top">KILN</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#menu">Menu</a>
+        <a href="#beans">Beans</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <span class="status" data-status data-open="false">Open daily</span>
+    </div>
+  </header>
 
-            <nav class="hidden md:flex items-center gap-10 text-xs font-semibold uppercase tracking-widest text-gray-400">
-                <a href="#roastery" class="hover:text-white transition-colors">The Roastery</a>
-                <a href="#menu" class="hover:text-white transition-colors">Counter</a>
-                <a href="#beans" class="hover:text-white transition-colors">Coffee Beans</a>
-                <a href="#visit" class="hover:text-white transition-colors">Find Us</a>
-            </nav>
+  <main id="main">
 
-            <a href="#visit" class="px-5 py-2.5 bg-rust text-white text-xs uppercase tracking-widest font-bold rounded-lg hover:bg-opacity-90 transition-all shadow-[0_0_20px_rgba(217,83,38,0.3)]">
-                Merchant Lane
-            </a>
+    <section class="hero" id="top">
+      <div class="wrap">
+        <h1><span>Coffee roasted on</span> <em>Merchant Lane.</em></h1>
+
+        <div class="hero-grid">
+          <div class="hero-info">
+            <p class="deck">Independent roastery and bakery in Liverpool. We roast our own beans in the front window and bake fresh every morning.</p>
+            <div class="hero-actions">
+              <a class="btn" href="#menu">
+                See the menu
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true"><path d="M3 12h17M13 5l7 7-7 7"/></svg>
+              </a>
+              <a class="link" href="#visit">Find us</a>
+            </div>
+            <dl class="facts">
+              <div class="fact"><dt>Today</dt><dd><span class="status-text" data-status data-open="false">Open daily</span></dd></div>
+              <div class="fact"><dt>Where</dt><dd>Merchant Lane, Liverpool L1</dd></div>
+              <div class="fact"><dt>Roasting</dt><dd>Small batches, six mornings a week</dd></div>
+            </dl>
+          </div>
+
+          <div class="hero-photo framed">
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=75" width="1400" height="1050" alt="Two people clinking latte glasses over a cafe table" fetchpriority="high">
+          </div>
         </div>
-    </header>
+      </div>
+    </section>
 
-    <main>
-        <section class="relative pt-16 pb-24 border-b border-white/5 overflow-hidden">
-            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-rust/10 blur-[120px] rounded-full pointer-events-none"></div>
-
-            <div class="max-w-7xl mx-auto px-6 relative z-10">
-                <div class="max-w-3xl mb-12">
-                    <span class="text-xs uppercase tracking-widest font-bold text-rust block mb-3 font-industrial">// Independent Coffee Roastery &amp; Bakery</span>
-                    <h1 class="font-industrial text-3xl md:text-5xl text-white uppercase tracking-tight leading-[1.2] mb-4">
-                        Fresh coffee roasted on Merchant Lane.
-                    </h1>
-                    <p class="text-lg text-gray-400 leading-relaxed max-w-2xl">
-                        An independent specialty coffee shop and micro-roastery in Liverpool. We roast our beans in small batches every week and bake fresh sourdough daily.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
-                    <div class="md:col-span-8 aspect-[16/10] overflow-hidden rounded-xl glass-panel">
-                        <img
-                            src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=1400&q=80"
-                            onerror="this.src='https://placehold.co/1200x800/181A1B/F4F5F7?text=Kiln+Roastery'"
-                            alt="Espresso machine at Kiln Coffee Roasters on Merchant Lane Liverpool"
-                            class="w-full h-full object-cover filter contrast-110 hover:scale-105 transition-transform duration-700 opacity-90"
-                        />
-                    </div>
-                    <div class="md:col-span-4 space-y-6">
-                        <div class="aspect-[4/5] overflow-hidden rounded-xl glass-panel">
-                            <img
-                                src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=800&q=80"
-                                onerror="this.src='https://placehold.co/800x1000/181A1B/F4F5F7?text=Bakehouse'"
-                                alt="Fresh sourdough pastries at Kiln Liverpool"
-                                class="w-full h-full object-cover filter contrast-110 hover:scale-105 transition-transform duration-700 opacity-90"
-                            />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="roastery" class="py-24 border-b border-white/5 bg-black/40">
-            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-6 space-y-6">
-                    <span class="text-xs uppercase tracking-widest font-bold text-rust font-industrial">// On-Site Roasting</span>
-                    <h2 class="font-industrial text-3xl md:text-4xl text-white uppercase tracking-tight">
-                        Roasted right here in Liverpool.
-                    </h2>
-                    <p class="text-base text-gray-400 leading-relaxed">
-                        We roast our own coffee beans right on Merchant Lane. Come in, smell the beans roasting in our machine, and grab a fresh cup poured by people who love good coffee.
-                    </p>
-                    <div class="pt-4 grid grid-cols-2 gap-6 border-t border-white/10">
-                        <div>
-                            <span class="block font-industrial text-3xl text-white">Fresh</span>
-                            <span class="text-xs text-gray-400 uppercase tracking-wider">Roasted Weekly</span>
-                        </div>
-                        <div>
-                            <span class="block font-industrial text-3xl text-white">100%</span>
-                            <span class="text-xs text-gray-400 uppercase tracking-wider">Ethically Sourced</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:col-span-6">
-                    <div class="aspect-[4/3] overflow-hidden rounded-xl glass-panel">
-                        <img
-                            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=80"
-                            onerror="this.src='https://placehold.co/800x600/181A1B/F4F5F7?text=Coffee+Bar'"
-                            alt="Pour over coffee preparation at Kiln"
-                            class="w-full h-full object-cover filter contrast-110 opacity-90"
-                        />
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="menu" class="py-24 border-b border-white/5">
-            <div class="max-w-4xl mx-auto px-6">
-                <div class="text-center max-w-xl mx-auto mb-16">
-                    <span class="text-xs uppercase tracking-widest font-bold text-rust block mb-2 font-industrial">// The Menu</span>
-                    <h2 class="font-industrial text-3xl md:text-4xl text-white uppercase tracking-tight">What's on the counter</h2>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 glass-panel p-8 md:p-12 rounded-2xl">
-                    <div class="space-y-6">
-                        <h3 class="font-industrial text-xl text-white uppercase border-b border-white/10 pb-3 tracking-wider">Coffee &amp; Drinks</h3>
-                        <div class="space-y-5">
-                            <div>
-                                <div class="flex items-baseline justify-between text-sm font-semibold text-white">
-                                    <span>Espresso</span>
-                                    <span class="menu-dots"></span>
-                                    <span class="text-rust">£3.00</span>
-                                </div>
-                                <p class="text-xs text-gray-400 mt-1">Short, strong, and sweet</p>
-                            </div>
-                            <div>
-                                <div class="flex items-baseline justify-between text-sm font-semibold text-white">
-                                    <span>Cortado</span>
-                                    <span class="menu-dots"></span>
-                                    <span class="text-rust">£3.30</span>
-                                </div>
-                                <p class="text-xs text-gray-400 mt-1">Equal parts espresso and warm milk</p>
-                            </div>
-                            <div>
-                                <div class="flex items-baseline justify-between text-sm font-semibold text-white">
-                                    <span>Flat White</span>
-                                    <span class="menu-dots"></span>
-                                    <span class="text-rust">£3.50</span>
-                                </div>
-                                <p class="text-xs text-gray-400 mt-1">Double espresso with smooth textured milk</p>
-                            </div>
-                            <div>
-                                <div class="flex items-baseline justify-between text-sm font-semibold text-white">
-                                    <span>Filter Coffee</span>
-                                    <span class="menu-dots"></span>
-                                    <span class="text-rust">£3.20</span>
-                                </div>
-                                <p class="text-xs text-gray-400 mt-1">Freshly brewed black filter coffee</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="space-y-6">
-                        <h3 class="font-industrial text-xl text-white uppercase border-b border-white/10 pb-3 tracking-wider">Bakery</h3>
-                        <div class="space-y-5">
-                            <div>
-                                <div class="flex items-baseline justify-between text-sm font-semibold text-white">
-                                    <span>Butter Croissant</span>
-                                    <span class="menu-dots"></span>
-                                    <span class="text-rust">£3.40</span>
-                                </div>
-                                <p class="text-xs text-gray-400 mt-1">Freshly baked every morning</p>
-                            </div>
-                            <div>
-                                <div class="flex items-baseline justify-between text-sm font-semibold text-white">
-                                    <span>Cardamom Bun</span>
-                                    <span class="menu-dots"></span>
-                                    <span class="text-rust">£3.70</span>
-                                </div>
-                                <p class="text-xs text-gray-400 mt-1">Sweet, spiced, and sticky</p>
-                            </div>
-                            <div>
-                                <div class="flex items-baseline justify-between text-sm font-semibold text-white">
-                                    <span>Cheese Toastie</span>
-                                    <span class="menu-dots"></span>
-                                    <span class="text-rust">£7.80</span>
-                                </div>
-                                <p class="text-xs text-gray-400 mt-1">Melted cheese on house sourdough</p>
-                            </div>
-                            <div>
-                                <div class="flex items-baseline justify-between text-sm font-semibold text-white">
-                                    <span>Sourdough Loaf</span>
-                                    <span class="menu-dots"></span>
-                                    <span class="text-rust">£4.80</span>
-                                </div>
-                                <p class="text-xs text-gray-400 mt-1">Fresh whole loaf to take home</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="beans" class="py-24 border-b border-white/5 bg-black/40">
-            <div class="max-w-7xl mx-auto px-6">
-                <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
-                    <div>
-                        <span class="text-xs uppercase tracking-widest font-bold text-rust block mb-2 font-industrial">// Take Home</span>
-                        <h2 class="font-industrial text-3xl md:text-4xl text-white uppercase tracking-tight">Coffee Bags (250g)</h2>
-                    </div>
-                    <p class="text-sm text-gray-400 max-w-sm mt-4 md:mt-0">
-                        Take our fresh beans home. Available to buy across the counter in whole bean or ground to order.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="glass-panel rounded-2xl p-8 flex flex-col justify-between">
-                        <div>
-                            <span class="text-xs font-bold tracking-widest text-rust uppercase font-industrial">// Honduras</span>
-                            <h3 class="font-industrial text-2xl text-white uppercase mt-2">El Puente</h3>
-                            <p class="text-xs text-gray-400 mt-1">Smooth &amp; balanced</p>
-
-                            <div class="mt-6 p-4 bg-white/5 rounded-xl border border-white/5">
-                                <span class="text-[10px] uppercase tracking-wider text-gray-400 block font-industrial">Tasting Notes</span>
-                                <p class="text-xs font-medium text-white mt-1">Milk chocolate, hazelnut, and sweet citrus</p>
-                            </div>
-                        </div>
-                        <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-                            <span class="text-xs text-gray-400 uppercase">250g Bag</span>
-                            <span class="font-bold text-lg text-white">£11.50</span>
-                        </div>
-                    </div>
-
-                    <div class="glass-panel rounded-2xl p-8 flex flex-col justify-between">
-                        <div>
-                            <span class="text-xs font-bold tracking-widest text-rust uppercase font-industrial">// Ethiopia</span>
-                            <h3 class="font-industrial text-2xl text-white uppercase mt-2">Halo Beriti</h3>
-                            <p class="text-xs text-gray-400 mt-1">Bright &amp; fruity</p>
-
-                            <div class="mt-6 p-4 bg-white/5 rounded-xl border border-white/5">
-                                <span class="text-[10px] uppercase tracking-wider text-gray-400 block font-industrial">Tasting Notes</span>
-                                <p class="text-xs font-medium text-white mt-1">Peach, lemon, and floral tea</p>
-                            </div>
-                        </div>
-                        <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-                            <span class="text-xs text-gray-400 uppercase">250g Bag</span>
-                            <span class="font-bold text-lg text-white">£13.50</span>
-                        </div>
-                    </div>
-
-                    <div class="glass-panel rounded-2xl p-8 flex flex-col justify-between">
-                        <div>
-                            <span class="text-xs font-bold tracking-widest text-rust uppercase font-industrial">// Colombia (Decaf)</span>
-                            <h3 class="font-industrial text-2xl text-white uppercase mt-2">El Carmen</h3>
-                            <p class="text-xs text-gray-400 mt-1">Rich &amp; comforting</p>
-
-                            <div class="mt-6 p-4 bg-white/5 rounded-xl border border-white/5">
-                                <span class="text-[10px] uppercase tracking-wider text-gray-400 block font-industrial">Tasting Notes</span>
-                                <p class="text-xs font-medium text-white mt-1">Cocoa, malt biscuit, and stewed plum</p>
-                            </div>
-                        </div>
-                        <div class="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
-                            <span class="text-xs text-gray-400 uppercase">250g Bag</span>
-                            <span class="font-bold text-lg text-white">£12.00</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="visit" class="py-24">
-            <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                <div class="lg:col-span-6 space-y-6">
-                    <span class="text-xs uppercase tracking-widest font-bold text-rust font-industrial">// Come Visit</span>
-                    <h2 class="font-industrial text-3xl md:text-4xl text-white uppercase tracking-tight">
-                        Merchant Lane, Liverpool.
-                    </h2>
-                    <p class="text-base text-gray-400 leading-relaxed">
-                        No bookings needed—just drop in. We have plenty of seating, big windows to watch Merchant Lane go by, and dogs are always welcome.
-                    </p>
-
-                    <div class="pt-2 space-y-4 text-sm text-white font-medium">
-                        <div class="flex justify-between border-b border-white/10 pb-3 max-w-md">
-                            <span class="text-gray-400">Monday – Friday</span>
-                            <span>07:30 – 16:30</span>
-                        </div>
-                        <div class="flex justify-between border-b border-white/10 pb-3 max-w-md">
-                            <span class="text-gray-400">Saturday – Sunday</span>
-                            <span>08:30 – 16:00</span>
-                        </div>
-                        <div class="flex justify-between pb-3 max-w-md">
-                            <span class="text-gray-400">Email</span>
-                            <span>hello@kilncoffee.co.uk</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="lg:col-span-6">
-                    <div class="aspect-[4/3] overflow-hidden rounded-xl glass-panel">
-                        <img
-                            src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80"
-                            onerror="this.src='https://placehold.co/800x600/181A1B/F4F5F7?text=Liverpool+Interior'"
-                            alt="Inside Kiln coffee shop interior on Merchant Lane Liverpool"
-                            class="w-full h-full object-cover filter contrast-110 opacity-90"
-                        />
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="border-t border-white/10 bg-black/80 text-gray-400 text-sm">
-        <div class="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
-            <div class="space-y-4">
-                <a href="#" class="font-industrial text-xl text-white uppercase tracking-wider block">
-                    Kiln Coffee Roasters
-                </a>
-                <p class="text-xs leading-relaxed">
-                    Independent specialty coffee roastery and bakehouse located in the heart of Liverpool L1. Freshly roasted weekly.
-                </p>
-                <div class="text-xs uppercase tracking-widest text-rust font-industrial">
-                    // Merchant Lane, Liverpool
-                </div>
-            </div>
-
-            <div class="space-y-4">
-                <h4 class="font-industrial text-white uppercase text-xs tracking-widest">Opening Hours</h4>
-                <ul class="space-y-2 text-xs">
-                    <li class="flex justify-between"><span class="text-gray-400">Mon – Fri:</span> <span class="text-white font-medium">07:30 – 16:30</span></li>
-                    <li class="flex justify-between"><span class="text-gray-400">Sat – Sun:</span> <span class="text-white font-medium">08:30 – 16:00</span></li>
-                    <li class="pt-2 text-[11px] text-gray-400 italic">Walk-ins only. Dogs welcome.</li>
-                </ul>
-            </div>
-
-            <div class="space-y-4">
-                <h4 class="font-industrial text-white uppercase text-xs tracking-widest">Navigation</h4>
-                <ul class="space-y-2 text-xs">
-                    <li><a href="#roastery" class="hover:text-white transition-colors">The Roastery</a></li>
-                    <li><a href="#menu" class="hover:text-white transition-colors">Counter Menu</a></li>
-                    <li><a href="#beans" class="hover:text-white transition-colors">Retail Coffee Bags</a></li>
-                    <li><a href="#visit" class="hover:text-white transition-colors">Find Us</a></li>
-                </ul>
-            </div>
-
-            <div class="space-y-4">
-                <h4 class="font-industrial text-white uppercase text-xs tracking-widest">Contact &amp; Wholesale</h4>
-                <p class="text-xs leading-relaxed">
-                    For wholesale bean supply, catering inquiries, or general questions, drop us an email.
-                </p>
-                <a href="mailto:hello@kilncoffee.co.uk" class="inline-block text-xs font-semibold text-white underline hover:text-rust transition-colors">
-                    hello@kilncoffee.co.uk
-                </a>
-            </div>
+    <section class="menu" id="menu" aria-labelledby="menu-h">
+      <div class="wrap">
+        <div class="menu-head">
+          <h2 id="menu-h">Menu</h2>
+          <p>Walk in and order at the counter. Everything is made fresh, all day.</p>
         </div>
 
-        <div class="border-t border-white/5 py-6">
-            <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs gap-4">
-                <p>© 2026 Kiln Roasters Ltd. All rights reserved.</p>
-                <div class="flex gap-6 uppercase tracking-widest font-industrial text-[10px]">
-                    <span class="text-gray-400">Liverpool L1</span>
-                    <span class="text-gray-400">Specialty Grade</span>
-                </div>
-            </div>
-        </div>
-    </footer>
+        <div class="menu-cols">
+          <div class="menu-group">
+            <h3>Coffee</h3>
+            <ul class="menu-list">
+              <li class="item"><span class="name">Espresso</span><span class="price">£3.00</span><span class="desc">Short, strong and sweet.</span></li>
+              <li class="item"><span class="name">Cortado</span><span class="price">£3.30</span><span class="desc">Espresso and warm milk, half and half.</span></li>
+              <li class="item"><span class="name">Flat White</span><span class="price">£3.50</span><span class="desc">Double shot with silky milk.</span></li>
+              <li class="item"><span class="name">Latte</span><span class="price">£3.70</span><span class="desc">Double shot, lots of steamed milk.</span></li>
+              <li class="item"><span class="name">Batch Brew</span><span class="price">£3.20</span><span class="desc">Today's filter, brewed fresh on the hour.</span></li>
+            </ul>
+          </div>
 
+          <div class="menu-group">
+            <h3>Bakery</h3>
+            <ul class="menu-list">
+              <li class="item"><span class="name">Butter Croissant</span><span class="price">£3.40</span><span class="desc">Flaky, golden, baked every morning.</span></li>
+              <li class="item"><span class="name">Cardamom Bun</span><span class="price">£3.70</span><span class="desc">Sticky, spiced and best warm.</span></li>
+              <li class="item"><span class="name">Cheese Toastie</span><span class="price">£7.80</span><span class="desc">Three cheeses on house sourdough.</span></li>
+              <li class="item"><span class="name">Sourdough Loaf</span><span class="price">£4.80</span><span class="desc">Whole loaf to take home.</span></li>
+            </ul>
+          </div>
+
+          <div class="menu-group">
+            <h3>Cold &amp; Other</h3>
+            <ul class="menu-list">
+              <li class="item"><span class="name">Cold Brew</span><span class="price">£3.80</span><span class="desc">Steeped for eighteen hours, over ice.</span></li>
+              <li class="item"><span class="name">Iced Latte</span><span class="price">£4.20</span><span class="desc">Double shot, cold milk, ice.</span></li>
+              <li class="item"><span class="name">Hot Chocolate</span><span class="price">£3.60</span><span class="desc">Dark chocolate and steamed milk.</span></li>
+              <li class="item"><span class="name">Tea</span><span class="price">£2.80</span><span class="desc">Loose leaf, by the pot.</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="menu-note">Oat, soy and almond milk +50p. Ask what came out of the oven today.</p>
+      </div>
+    </section>
+
+    <section class="beans" id="beans" aria-labelledby="beans-h">
+      <div class="wrap beans-grid">
+        <div class="beans-copy">
+          <h2 id="beans-h">Beans to take home</h2>
+          <p>Roasted weekly, in 250g bags. Whole bean or ground to order, across the counter.</p>
+
+          <ul class="lots">
+            <li class="lot">
+              <h3>El Puente</h3>
+              <span class="price">£11.50</span>
+              <span class="meta">Honduras · Medium roast</span>
+              <span class="notes">Milk chocolate, hazelnut and sweet citrus.</span>
+            </li>
+            <li class="lot">
+              <h3>Halo Beriti</h3>
+              <span class="price">£13.50</span>
+              <span class="meta">Ethiopia · Light roast</span>
+              <span class="notes">Peach, lemon and floral tea.</span>
+            </li>
+            <li class="lot">
+              <h3>El Carmen</h3>
+              <span class="price">£12.00</span>
+              <span class="meta">Colombia · Decaf · Medium-dark roast</span>
+              <span class="notes">Cocoa, malt biscuit and stewed plum.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="beans-photo framed">
+          <img src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=1000&q=75" width="1000" height="1250" loading="lazy" alt="Roasted coffee beans beside a freshly pulled espresso">
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="visit-h">
+      <div class="wrap">
+        <h2 id="visit-h">Visit</h2>
+        <div class="visit-grid">
+          <div class="visit-info">
+            <address class="address">
+              <strong>Kiln Coffee Roasters</strong>
+              <span>Merchant Lane, Liverpool L1</span>
+              <span>No booking needed. Dogs welcome.</span>
+            </address>
+
+            <dl class="hours">
+              <div class="hours-row" data-days="Mon Tue Wed Thu Fri"><dt>Mon – Fri</dt><dd>07:30 – 16:30</dd></div>
+              <div class="hours-row" data-days="Sat Sun"><dt>Sat – Sun</dt><dd>08:30 – 16:00</dd></div>
+            </dl>
+
+            <p class="wholesale">Wholesale and catering: <a class="link" href="mailto:hello@kilncoffee.co.uk">hello@kilncoffee.co.uk</a></p>
+          </div>
+
+          <div class="visit-photo framed">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1400&q=75" width="1400" height="1050" loading="lazy" alt="Inside the cafe: tables, plants and a long counter">
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <span>© 2026 Kiln Roasters Ltd</span>
+      <span>Concept site. Names, prices and hours are placeholders.</span>
+      <span>Photos: <a href="https://unsplash.com" rel="noopener">Unsplash</a> contributors</span>
+    </div>
+  </footer>
 </body>
 </html>

@@ -351,7 +351,133 @@ p { margin: 0; max-width: 60ch; text-wrap: pretty; }
 .site-footer { border-top: 1px solid var(--rule); padding-block: 24px; font-size: 0.875rem; color: var(--muted); }
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 32px; }
 
+/* 404 */
+
+.lost { padding-block: clamp(64px, 12vw, 160px); min-height: 70vh; }
+.lost-code { font: 900 clamp(7rem, 26vw, 20rem)/0.8 var(--display); color: var(--orange); margin-bottom: 24px; }
+.lost h1 { color: var(--white); font-size: clamp(3rem, 8vw, 6rem); margin-bottom: 24px; }
+.lost-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; margin-top: 36px; max-width: none; }
+
+/* Screen-reader-only text */
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Why Kiln */
+
+.why { background: var(--black-2); border-top: 1px solid var(--rule); padding-block: clamp(56px, 8vw, 112px); }
+.why-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: 24px; row-gap: 40px; align-items: start; }
+.why-lede {
+  grid-column: 1 / -1;
+  font: 600 clamp(1.625rem, 3.2vw, 2.5rem)/1.2 var(--text);
+  letter-spacing: -0.01em;
+  color: var(--white);
+  max-width: 24ch;
+}
+.why-list { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.why-list li {
+  display: grid;
+  grid-template-columns: clamp(7rem, 34%, 12rem) minmax(0, 1fr);
+  gap: 16px;
+  padding: 18px 0 17px;
+  border-bottom: 1px solid var(--rule);
+}
+.why-list strong { font: 800 1.5rem/1 var(--display); letter-spacing: 0.04em; text-transform: uppercase; color: var(--orange); }
+@media (min-width: 900px) {
+  .why-lede { grid-column: 1 / span 6; }
+  .why-list { grid-column: 8 / -1; }
+}
+
+/* Menu filters and dietary tags */
+
+.filters-wrap { margin-bottom: 40px; }
+.filters-wrap[hidden] { display: none; }
+.filters { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip {
+  min-height: 44px;
+  padding: 0 20px;
+  border: 2px solid var(--on-paper);
+  background: transparent;
+  color: var(--on-paper);
+  font: 800 1.0625rem/1 var(--display);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 140ms var(--ease), color 140ms var(--ease);
+}
+.chip:hover { background: var(--orange); }
+.chip[aria-pressed="true"] { background: var(--on-paper); color: var(--paper); }
+.item[hidden], .menu-group[hidden] { display: none; }
+
+.tag {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 3px 5px 2px;
+  border: 1.5px solid currentColor;
+  font: 700 0.6875rem/1 var(--text);
+  letter-spacing: 0.06em;
+  vertical-align: 0.2em;
+  text-decoration: none;
+  cursor: help;
+}
+.menu-note { max-width: none; }
+
+/* Mobile quick bar */
+
+.quickbar {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+  background: var(--black);
+  border-top: 1px solid var(--rule);
+}
+.qstatus { display: inline-flex; align-items: center; gap: 8px; font: 600 0.875rem/1.2 var(--text); color: var(--white); }
+.qstatus::before { content: ""; width: 10px; height: 10px; background: var(--muted); flex: none; }
+.qstatus[data-open="true"]::before { background: var(--orange); }
+.qactions { display: flex; gap: 10px; }
+.quickbar .btn { padding: 14px 18px 13px; font-size: 1.125rem; }
+.btn-line { background: transparent; color: var(--white); box-shadow: inset 0 0 0 2px var(--white); }
+.btn-line:hover { background: var(--white); color: var(--on-orange); }
+@media (max-width: 899px) { body { padding-bottom: 76px; } }
+@media (min-width: 900px) { .quickbar { display: none; } }
+
+/* Scroll reveals: content is visible without JS */
+
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 600ms var(--ease) var(--d, 0ms), transform 700ms var(--ease) var(--d, 0ms);
+}
+.js .reveal.in { opacity: 1; transform: none; }
+.js .framed.reveal::before {
+  transform: scale(0);
+  transform-origin: 0 0;
+  transition: transform 800ms var(--ease) calc(var(--d, 0ms) + 250ms);
+}
+.js .framed.reveal.in::before { transform: none; }
+
+@media (hover: hover) {
+  .lot { padding-inline: 12px; margin-inline: -12px; transition: background-color 160ms var(--ease), color 160ms var(--ease); }
+  .lot:hover { background: var(--on-orange); color: var(--orange); }
+  .lot:hover h3 { color: var(--orange); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   * { transition-duration: 0.01ms !important; }
+  .js .reveal, .js .framed.reveal::before { opacity: 1; transform: none; }
 }

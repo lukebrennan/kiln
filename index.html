@@ -7,11 +7,22 @@
   <meta name="description" content="Kiln is an independent coffee roastery and bakery in Liverpool. See the menu, the beans we roast, and when we are open.">
   <meta name="theme-color" content="#0e0d0c">
 
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kiln Coffee Roasters">
+  <meta property="og:description" content="Coffee roasted on Merchant Lane. Roastery and bakery in Liverpool.">
+  <meta property="og:url" content="https://lukebrennan.github.io/kiln/">
+  <meta property="og:image" content="https://lukebrennan.github.io/kiln/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400..700&family=Big+Shoulders+Display:wght@600..900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
+  <script>document.documentElement.classList.add("js")</script>
   <script src="assets/js/main.js" defer></script>
 </head>
 <body>
@@ -59,70 +70,92 @@
       </div>
     </section>
 
+    <section class="why" aria-labelledby="why-h">
+      <div class="wrap why-grid">
+        <h2 class="sr" id="why-h">Why Kiln</h2>
+        <p class="why-lede reveal">What you drink and eat here was made hours ago, not days. That is the whole idea.</p>
+        <ul class="why-list reveal" style="--d:120ms">
+          <li><strong>Roasted weekly</strong><span>Small batches in the front window, so the beans on the shelf are days old, not weeks.</span></li>
+          <li><strong>Baked daily</strong><span>Laminated and proved overnight, out of the oven by seven.</span></li>
+          <li><strong>Sourced direct</strong><span>Single-origin lots from producers we can name, listed on every bag.</span></li>
+        </ul>
+      </div>
+    </section>
+
     <section class="menu" id="menu" aria-labelledby="menu-h">
       <div class="wrap">
-        <div class="menu-head">
+        <div class="menu-head reveal">
           <h2 id="menu-h">Menu</h2>
           <p>Walk in and order at the counter. Everything is made fresh, all day.</p>
         </div>
 
+        <div class="filters-wrap" data-filters hidden>
+          <div class="filters" role="group" aria-label="Filter the menu">
+            <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
+            <button class="chip" type="button" data-filter="vg" aria-pressed="false">Vegan</button>
+            <button class="chip" type="button" data-filter="v" aria-pressed="false">Vegetarian</button>
+            <button class="chip" type="button" data-filter="gf" aria-pressed="false">Gluten-free</button>
+          </div>
+          <p class="sr" role="status" aria-live="polite" data-count></p>
+        </div>
+
         <div class="menu-cols">
-          <div class="menu-group">
+          <div class="menu-group reveal">
             <h3>Coffee</h3>
             <ul class="menu-list">
-              <li class="item"><span class="name">Espresso</span><span class="price">£3.00</span><span class="desc">Short, strong and sweet.</span></li>
-              <li class="item"><span class="name">Cortado</span><span class="price">£3.30</span><span class="desc">Espresso and warm milk, half and half.</span></li>
-              <li class="item"><span class="name">Flat White</span><span class="price">£3.50</span><span class="desc">Double shot with silky milk.</span></li>
-              <li class="item"><span class="name">Latte</span><span class="price">£3.70</span><span class="desc">Double shot, lots of steamed milk.</span></li>
-              <li class="item"><span class="name">Batch Brew</span><span class="price">£3.20</span><span class="desc">Today's filter, brewed fresh on the hour.</span></li>
+              <li class="item" data-tags="vg v gf"><span class="name">Espresso <abbr class="tag" title="Vegan">VG</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="price">£3.00</span><span class="desc">Short, strong and sweet.</span></li>
+              <li class="item" data-tags="v gf"><span class="name">Cortado <abbr class="tag" title="Vegetarian">V</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="price">£3.30</span><span class="desc">Espresso and warm milk, half and half.</span></li>
+              <li class="item" data-tags="v gf"><span class="name">Flat White <abbr class="tag" title="Vegetarian">V</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="price">£3.50</span><span class="desc">Double shot with silky milk.</span></li>
+              <li class="item" data-tags="v gf"><span class="name">Latte <abbr class="tag" title="Vegetarian">V</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="price">£3.70</span><span class="desc">Double shot, lots of steamed milk.</span></li>
+              <li class="item" data-tags="vg v gf"><span class="name">Batch Brew <abbr class="tag" title="Vegan">VG</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="price">£3.20</span><span class="desc">Today's filter, brewed fresh on the hour.</span></li>
             </ul>
           </div>
 
-          <div class="menu-group">
+          <div class="menu-group reveal" style="--d:100ms">
             <h3>Bakery</h3>
             <ul class="menu-list">
-              <li class="item"><span class="name">Butter Croissant</span><span class="price">£3.40</span><span class="desc">Flaky, golden, baked every morning.</span></li>
-              <li class="item"><span class="name">Cardamom Bun</span><span class="price">£3.70</span><span class="desc">Sticky, spiced and best warm.</span></li>
-              <li class="item"><span class="name">Cheese Toastie</span><span class="price">£7.80</span><span class="desc">Three cheeses on house sourdough.</span></li>
-              <li class="item"><span class="name">Sourdough Loaf</span><span class="price">£4.80</span><span class="desc">Whole loaf to take home.</span></li>
+              <li class="item" data-tags="v"><span class="name">Butter Croissant <abbr class="tag" title="Vegetarian">V</abbr></span><span class="price">£3.40</span><span class="desc">Flaky, golden, baked every morning.</span></li>
+              <li class="item" data-tags="v"><span class="name">Cardamom Bun <abbr class="tag" title="Vegetarian">V</abbr></span><span class="price">£3.70</span><span class="desc">Sticky, spiced and best warm.</span></li>
+              <li class="item" data-tags="v"><span class="name">Cheese Toastie <abbr class="tag" title="Vegetarian">V</abbr></span><span class="price">£7.80</span><span class="desc">Three cheeses on house sourdough.</span></li>
+              <li class="item" data-tags="vg v"><span class="name">Sourdough Loaf <abbr class="tag" title="Vegan">VG</abbr></span><span class="price">£4.80</span><span class="desc">Whole loaf to take home.</span></li>
             </ul>
           </div>
 
-          <div class="menu-group">
+          <div class="menu-group reveal" style="--d:200ms">
             <h3>Cold &amp; Other</h3>
             <ul class="menu-list">
-              <li class="item"><span class="name">Cold Brew</span><span class="price">£3.80</span><span class="desc">Steeped for eighteen hours, over ice.</span></li>
-              <li class="item"><span class="name">Iced Latte</span><span class="price">£4.20</span><span class="desc">Double shot, cold milk, ice.</span></li>
-              <li class="item"><span class="name">Hot Chocolate</span><span class="price">£3.60</span><span class="desc">Dark chocolate and steamed milk.</span></li>
-              <li class="item"><span class="name">Tea</span><span class="price">£2.80</span><span class="desc">Loose leaf, by the pot.</span></li>
+              <li class="item" data-tags="vg v gf"><span class="name">Cold Brew <abbr class="tag" title="Vegan">VG</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="price">£3.80</span><span class="desc">Steeped for eighteen hours, over ice.</span></li>
+              <li class="item" data-tags="v gf"><span class="name">Iced Latte <abbr class="tag" title="Vegetarian">V</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="price">£4.20</span><span class="desc">Double shot, cold milk, ice.</span></li>
+              <li class="item" data-tags="v gf"><span class="name">Hot Chocolate <abbr class="tag" title="Vegetarian">V</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="price">£3.60</span><span class="desc">Dark chocolate and steamed milk.</span></li>
+              <li class="item" data-tags="vg v gf"><span class="name">Tea <abbr class="tag" title="Vegan">VG</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="price">£2.80</span><span class="desc">Loose leaf, by the pot.</span></li>
             </ul>
           </div>
         </div>
 
-        <p class="menu-note">Oat, soy and almond milk +50p. Ask what came out of the oven today.</p>
+        <p class="menu-note">VG vegan · V vegetarian · GF gluten-free. Oat, soy and almond milk +50p. Ask us about allergens.</p>
       </div>
     </section>
 
     <section class="beans" id="beans" aria-labelledby="beans-h">
       <div class="wrap beans-grid">
         <div class="beans-copy">
-          <h2 id="beans-h">Beans to take home</h2>
-          <p>Roasted weekly, in 250g bags. Whole bean or ground to order, across the counter.</p>
+          <h2 id="beans-h" class="reveal">Beans to take home</h2>
+          <p class="reveal" style="--d:80ms">Roasted weekly, in 250g bags. Whole bean or ground to order, across the counter.</p>
 
           <ul class="lots">
-            <li class="lot">
+            <li class="lot reveal">
               <h3>El Puente</h3>
               <span class="price">£11.50</span>
               <span class="meta">Honduras · Medium roast</span>
               <span class="notes">Milk chocolate, hazelnut and sweet citrus.</span>
             </li>
-            <li class="lot">
+            <li class="lot reveal" style="--d:100ms">
               <h3>Halo Beriti</h3>
               <span class="price">£13.50</span>
               <span class="meta">Ethiopia · Light roast</span>
               <span class="notes">Peach, lemon and floral tea.</span>
             </li>
-            <li class="lot">
+            <li class="lot reveal" style="--d:200ms">
               <h3>El Carmen</h3>
               <span class="price">£12.00</span>
               <span class="meta">Colombia · Decaf · Medium-dark roast</span>
@@ -131,17 +164,17 @@
           </ul>
         </div>
 
-        <div class="beans-photo framed">
-          <img src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=1000&q=75" width="1000" height="1250" loading="lazy" alt="Roasted coffee beans beside a freshly pulled espresso">
+        <div class="beans-photo framed reveal">
+          <img src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=1000&q=75" width="1000" height="1000" loading="lazy" alt="Roasted coffee beans beside a freshly pulled espresso">
         </div>
       </div>
     </section>
 
     <section class="visit" id="visit" aria-labelledby="visit-h">
       <div class="wrap">
-        <h2 id="visit-h">Visit</h2>
+        <h2 id="visit-h" class="reveal">Visit</h2>
         <div class="visit-grid">
-          <div class="visit-info">
+          <div class="visit-info reveal" style="--d:80ms">
             <address class="address">
               <strong>Kiln Coffee Roasters</strong>
               <span>Merchant Lane, Liverpool L1</span>
@@ -156,7 +189,7 @@
             <p class="wholesale">Wholesale and catering: <a class="link" href="mailto:hello@kilncoffee.co.uk">hello@kilncoffee.co.uk</a></p>
           </div>
 
-          <div class="visit-photo framed">
+          <div class="visit-photo framed reveal">
             <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1400&q=75" width="1400" height="1050" loading="lazy" alt="Inside the cafe: tables, plants and a long counter">
           </div>
         </div>
@@ -167,9 +200,16 @@
   <footer class="site-footer">
     <div class="wrap">
       <span>© 2026 Kiln Roasters Ltd</span>
-      <span>Concept site. Names, prices and hours are placeholders.</span>
       <span>Photos: <a href="https://unsplash.com" rel="noopener">Unsplash</a> contributors</span>
     </div>
   </footer>
+
+  <nav class="quickbar" aria-label="Quick actions">
+    <span class="qstatus" data-status data-short data-open="false">Open daily</span>
+    <span class="qactions">
+      <a class="btn" href="#menu">Menu</a>
+      <a class="btn btn-line" href="#visit">Visit</a>
+    </span>
+  </nav>
 </body>
 </html>

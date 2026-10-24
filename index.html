@@ -20,13 +20,12 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="preload" as="image" imagesrcset="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=700&q=75 700w, https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=75 1000w, https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1400&q=75 1400w" imagesizes="(min-width: 900px) 46vw, 100vw">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100,400..700&family=Big+Shoulders+Display:wght@600..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css?v=2">
+  <link rel="preload" href="assets/fonts/big-shoulders-display.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
   <script>document.documentElement.classList.add("js")</script>
-  <script src="assets/js/main.js?v=2" defer></script>
+  <script src="assets/js/main.js?v=3" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -35,7 +34,7 @@
     <div class="wrap">
       <a class="brand" href="#top" aria-label="Kiln Coffee Roasters, back to top">KILN</a>
       <nav class="nav" aria-label="Primary" data-spy>
-        <a href="#menu">Menu</a>
+        <a href="menu.html">Menu</a>
         <a href="#beans">Beans</a>
         <a href="#visit">Visit</a>
       </nav>
@@ -55,7 +54,7 @@
             </div>
             <p class="deck">We roast our own beans in the front window and bake fresh every morning.</p>
             <div class="hero-actions">
-              <a class="btn" href="#menu">
+              <a class="btn" href="menu.html">
                 See the menu
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true"><path d="M3 12h17M13 5l7 7-7 7"/></svg>
               </a>
@@ -87,57 +86,36 @@
       </div>
     </section>
 
-    <section class="menu" id="menu" aria-labelledby="menu-h">
+    <section class="menu counter" id="counter" aria-labelledby="counter-h">
       <div class="wrap">
         <div class="menu-head reveal">
-          <h2 id="menu-h">Menu</h2>
-          <p>Walk in and order at the counter. Everything is made fresh, all day.</p>
+          <h2 id="counter-h">From the counter</h2>
+          <p>A few favourites. Oat milk is free.</p>
         </div>
 
-        <div class="filters-wrap" data-filters hidden>
-          <div class="filters" role="group" aria-label="Filter the menu">
-            <button class="chip" type="button" data-filter="all" aria-pressed="true">All</button>
-            <button class="chip" type="button" data-filter="vg" aria-pressed="false">Vegan</button>
-            <button class="chip" type="button" data-filter="v" aria-pressed="false">Vegetarian</button>
-            <button class="chip" type="button" data-filter="gf" aria-pressed="false">Gluten-free</button>
-          </div>
-          <p class="sr" role="status" aria-live="polite" data-count></p>
-        </div>
-
-        <div class="menu-cols">
+        <div class="menu-cols two">
           <div class="menu-group reveal">
-            <h3>Coffee</h3>
+            <h3 class="group-title">Coffee</h3>
             <ul class="menu-list">
-              <li class="item" data-tags="vg v gf"><span class="name">Espresso <abbr class="tag" title="Vegan">VG</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="leader" aria-hidden="true"></span><span class="price">£3.00</span><span class="desc">Short, strong and sweet.</span></li>
-              <li class="item" data-tags="v gf"><span class="name">Cortado <abbr class="tag" title="Vegetarian">V</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="leader" aria-hidden="true"></span><span class="price">£3.30</span><span class="desc">Espresso and warm milk, half and half.</span></li>
-              <li class="item" data-tags="v gf"><span class="name">Flat White <abbr class="tag" title="Vegetarian">V</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="leader" aria-hidden="true"></span><span class="price">£3.50</span><span class="desc">Double shot with silky milk.</span></li>
-              <li class="item" data-tags="v gf"><span class="name">Latte <abbr class="tag" title="Vegetarian">V</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="leader" aria-hidden="true"></span><span class="price">£3.70</span><span class="desc">Double shot, lots of steamed milk.</span></li>
-              <li class="item" data-tags="vg v gf"><span class="name">Batch Brew <abbr class="tag" title="Vegan">VG</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="leader" aria-hidden="true"></span><span class="price">£3.20</span><span class="desc">Today's filter, brewed fresh on the hour.</span></li>
+              <li class="item"><span class="name">Flat White</span><span class="leader" aria-hidden="true"></span><span class="price">£3.60</span></li>
+              <li class="item"><span class="name">Batch Filter</span><span class="leader" aria-hidden="true"></span><span class="price">£3.20</span></li>
+              <li class="item"><span class="name">Cold Brew</span><span class="leader" aria-hidden="true"></span><span class="price">£4.00</span></li>
+              <li class="item"><span class="name">Matcha Latte</span><span class="leader" aria-hidden="true"></span><span class="price">£4.40</span></li>
             </ul>
           </div>
 
           <div class="menu-group reveal" style="--d:100ms">
-            <h3>Bakery</h3>
+            <h3 class="group-title">Bakery</h3>
             <ul class="menu-list">
-              <li class="item" data-tags="v"><span class="name">Butter Croissant <abbr class="tag" title="Vegetarian">V</abbr></span><span class="leader" aria-hidden="true"></span><span class="price">£3.40</span><span class="desc">Flaky, golden, baked every morning.</span></li>
-              <li class="item" data-tags="v"><span class="name">Cardamom Bun <abbr class="tag" title="Vegetarian">V</abbr></span><span class="leader" aria-hidden="true"></span><span class="price">£3.70</span><span class="desc">Sticky, spiced and best warm.</span></li>
-              <li class="item" data-tags="v"><span class="name">Cheese Toastie <abbr class="tag" title="Vegetarian">V</abbr></span><span class="leader" aria-hidden="true"></span><span class="price">£7.80</span><span class="desc">Three cheeses on house sourdough.</span></li>
-              <li class="item" data-tags="vg v"><span class="name">Sourdough Loaf <abbr class="tag" title="Vegan">VG</abbr></span><span class="leader" aria-hidden="true"></span><span class="price">£4.80</span><span class="desc">Whole loaf to take home.</span></li>
-            </ul>
-          </div>
-
-          <div class="menu-group reveal" style="--d:200ms">
-            <h3>Cold &amp; Other</h3>
-            <ul class="menu-list">
-              <li class="item" data-tags="vg v gf"><span class="name">Cold Brew <abbr class="tag" title="Vegan">VG</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="leader" aria-hidden="true"></span><span class="price">£3.80</span><span class="desc">Steeped for eighteen hours, over ice.</span></li>
-              <li class="item" data-tags="v gf"><span class="name">Iced Latte <abbr class="tag" title="Vegetarian">V</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="leader" aria-hidden="true"></span><span class="price">£4.20</span><span class="desc">Double shot, cold milk, ice.</span></li>
-              <li class="item" data-tags="v gf"><span class="name">Hot Chocolate <abbr class="tag" title="Vegetarian">V</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="leader" aria-hidden="true"></span><span class="price">£3.60</span><span class="desc">Dark chocolate and steamed milk.</span></li>
-              <li class="item" data-tags="vg v gf"><span class="name">Tea <abbr class="tag" title="Vegan">VG</abbr><abbr class="tag" title="Gluten-free">GF</abbr></span><span class="leader" aria-hidden="true"></span><span class="price">£2.80</span><span class="desc">Loose leaf, by the pot.</span></li>
+              <li class="item"><span class="name">Cardamom Bun</span><span class="leader" aria-hidden="true"></span><span class="price">£3.90</span></li>
+              <li class="item"><span class="name">Pistachio Croissant</span><span class="leader" aria-hidden="true"></span><span class="price">£4.20</span></li>
+              <li class="item"><span class="name">Cheese Toastie</span><span class="leader" aria-hidden="true"></span><span class="price">£7.50</span></li>
+              <li class="item"><span class="name">Sourdough Loaf</span><span class="leader" aria-hidden="true"></span><span class="price">£5.00</span></li>
             </ul>
           </div>
         </div>
 
-        <p class="menu-note">VG vegan · V vegetarian · GF gluten-free. Oat, soy and almond milk +50p. Ask us about allergens.</p>
+        <p class="menu-cta reveal"><a class="btn" href="menu.html">Full menu <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true"><path d="M3 12h17M13 5l7 7-7 7"/></svg></a></p>
       </div>
     </section>
 
@@ -209,7 +187,7 @@
     <div class="wrap">
       <span>© 2026 Kiln Roasters Ltd</span>
       <nav class="foot-nav" aria-label="Footer">
-        <a href="#menu">Menu</a>
+        <a href="menu.html">Menu</a>
         <a href="#beans">Beans</a>
         <a href="#visit">Visit</a>
         <a href="mailto:hello@kilncoffee.co.uk">Email</a>
@@ -221,7 +199,7 @@
   <nav class="quickbar" aria-label="Quick actions">
     <span class="qstatus" data-status data-short data-open="false">Open daily</span>
     <span class="qactions">
-      <a class="btn" href="#menu">Menu</a>
+      <a class="btn" href="menu.html">Menu</a>
       <a class="btn btn-line" href="#visit">Visit</a>
     </span>
   </nav>

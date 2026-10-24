@@ -1,4 +1,4 @@
-/* Kiln — open status, menu filters, scroll reveals, header and nav state. */
+/* Kiln — open status, scroll reveals, header and nav state. */
 (() => {
   "use strict";
 
@@ -48,31 +48,6 @@
 
   paintStatus();
   setInterval(paintStatus, 60000);
-
-  /* ---------- Menu filters ---------- */
-
-  const filterBar = document.querySelector("[data-filters]");
-  if (filterBar) {
-    filterBar.hidden = false;
-    const chips = [...filterBar.querySelectorAll("[data-filter]")];
-    const items = [...document.querySelectorAll(".menu .item")];
-    const groups = [...document.querySelectorAll(".menu-group")];
-    const count = filterBar.querySelector("[data-count]");
-
-    const apply = (tag) => {
-      let shown = 0;
-      items.forEach((item) => {
-        const match = tag === "all" || item.dataset.tags.split(" ").includes(tag);
-        item.hidden = !match;
-        if (match) shown += 1;
-      });
-      groups.forEach((g) => { g.hidden = !g.querySelector(".item:not([hidden])"); });
-      chips.forEach((c) => c.setAttribute("aria-pressed", String(c.dataset.filter === tag)));
-      count.textContent = `${shown} of ${items.length} items shown`;
-    };
-
-    chips.forEach((c) => c.addEventListener("click", () => apply(c.dataset.filter)));
-  }
 
   /* ---------- Photos fade in once they have loaded ---------- */
 

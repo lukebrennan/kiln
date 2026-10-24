@@ -1,6 +1,10 @@
-/* Kiln — open/closed status and today's hours (placeholder hours). */
+/* Kiln — open status, menu filters, scroll reveals, header and nav state. */
 (() => {
   "use strict";
+
+  const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Opening hours (placeholder) ---------- */
 
   const HOURS = {
     Mon: ["07:30", "16:30"], Tue: ["07:30", "16:30"], Wed: ["07:30", "16:30"],
@@ -30,7 +34,7 @@
     return { open: false, text: `Closed. Opens tomorrow at ${HOURS[next][0]}`, short: `Opens ${HOURS[next][0]} tomorrow` };
   }
 
-  function paint() {
+  function paintStatus() {
     const now = londonNow();
     const s = statusFor(now);
     document.querySelectorAll("[data-status]").forEach((el) => {
@@ -42,8 +46,8 @@
     });
   }
 
-  paint();
-  setInterval(paint, 60000);
+  paintStatus();
+  setInterval(paintStatus, 60000);
 
   /* ---------- Menu filters ---------- */
 
@@ -70,10 +74,20 @@
     chips.forEach((c) => c.addEventListener("click", () => apply(c.dataset.filter)));
   }
 
+  /* ---------- Photos fade in once they have loaded ---------- */
+
+  document.documentElement.classList.add("fade");
+  document.querySelectorAll(".framed img").forEach((img) => {
+    const show = () => img.classList.add("loaded");
+    if (img.complete && img.naturalWidth) show();
+    else img.addEventListener("load", show, { once: true });
+    img.addEventListener("error", show, { once: true });
+  });
+
   /* ---------- Scroll reveals ---------- */
 
   const reveals = document.querySelectorAll(".reveal");
-  if ("IntersectionObserver" in window && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  if ("IntersectionObserver" in window && !reduceMotion) {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e) => {
         if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
@@ -82,5 +96,34 @@
     reveals.forEach((el) => io.observe(el));
   } else {
     reveals.forEach((el) => el.classList.add("in"));
+  }
+
+  /* ---------- Header shrinks once the page has scrolled ---------- */
+
+  const header = document.querySelector(".site-header");
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 24);
+  addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Nav highlights the section in view ---------- */
+
+  const spyNav = document.querySelector("[data-spy]");
+  if (spyNav && "IntersectionObserver" in window) {
+    const links = [...spyNav.querySelectorAll('a[href^="#"]')];
+    const sections = links.map((a) => document.querySelector(a.getAttribute("href"))).filter(Boolean);
+    const visible = new Map();
+    const update = () => {
+      let best = null;
+      sections.forEach((s) => { if (visible.get(s) && (!best || s.offsetTop > best.offsetTop)) best = s; });
+      links.forEach((a) => {
+        const on = best && a.getAttribute("href") === `#${best.id}`;
+        if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+      });
+    };
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => visible.set(e.target, e.isIntersecting));
+      update();
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    sections.forEach((s) => io.observe(s));
   }
 })();

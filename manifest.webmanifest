@@ -1,0 +1,11 @@
+{
+  "name": "Kiln Coffee Roasters",
+  "short_name": "Kiln",
+  "description": "Roastery and bakery on Merchant Lane, Liverpool.",
+  "start_url": "/kiln/",
+  "scope": "/kiln/",
+  "display": "standalone",
+  "background_color": "#0e0d0c",
+  "theme_color": "#0e0d0c",
+  "icons": [{ "src": "assets/favicon.svg", "sizes": "any", "type": "image/svg+xml" }]
+}
